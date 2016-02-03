@@ -1,18 +1,12 @@
-given_sentence = "This this is zebra zebra zebra ball ace ace ace that this wonderful."
+given_sentence = "This this zebra zebra is zebra ball ace ace ace that this wonderful."
 
-#print(given_sentence.lower().replace(".", "").split())
-
-given_sentence = given_sentence.lower().replace(".", "").split()
-
-#print(set(given_sentence))
+new_words = given_sentence.lower().replace(".", "").split()
 
 d = {}
 
-for character in set(given_sentence):
-    d[character] = given_sentence.count(character)
-    #print(character, given_sentence.count(character))
-
-#print(d.items())
+for word in set(new_words):
+    d[word] = new_words.count(word)
+    print(word, new_words.count(word))
 
 l = d.items()
 
@@ -20,8 +14,7 @@ def val_sort(val):
     return val[1]
 
 d = sorted(l, key=val_sort)
-print(d)
-#d = dict(d)# Don't have to turn back into dictionary
-#print(d)
-#d = d.sort(reverse=True)
-#print(d)
+print("Word Frequency: " + str(d))
+
+top_twenty = (d[-5:])
+print("Twenty most popular: " + str(top_twenty))
