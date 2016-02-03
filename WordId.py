@@ -1,12 +1,19 @@
-given_sentence = "This this zebra zebra is zebra ball ace ace ace that this wonderful."
+with open("sample.txt") as my_file:
+    contents = my_file.read()
 
-new_words = given_sentence.lower().replace(".", "").split()
+answer = input("Do you want to enter a sentence or run provided text? ")
+
+if answer == "yes":
+    given_sentence = input("What is your sentence? ")#"This this zebra zebra is zebra ball ace ace ace that this wonderful."
+    new_words = given_sentence.lower().replace(".", "").split()
+else:
+    new_words = contents.lower().replace(".", "").split()
 
 d = {}
 
 for word in set(new_words):
     d[word] = new_words.count(word)
-    print(word, new_words.count(word))
+    #print(word, new_words.count(word)) #don't need to print this list or it will take forever
 
 l = d.items()
 
